@@ -9,7 +9,6 @@ import sys
 from typing import Dict, List, Optional
 
 from .hf_newgpt import NewGPTConfig, NewGPTForCausalLM
-from fairseq.modules.dynamic_memory_memtrm import External_Memory
 
 import torch
 import torch.nn as nn
@@ -68,9 +67,6 @@ class NewGPTLanguageModel(FairseqLanguageModel):
         if args.gpt_model_path != "":
             state = checkpoint_utils.load_checkpoint_to_cpu(args.gpt_model_path)
             model.load_state_dict(state["model"], strict=True, args=args)
-        if getattr(args, "use_external_memory", False):
-            model.decoder.model.transformer.h[args.retrieval_layer_index].attn.memory_bias = nn.Parameter(torch.zeros(args.num_attention_heads))
-
 
         return model
 
@@ -99,16 +95,6 @@ class NewGPTDecoder(FairseqIncrementalDecoder):
         # set zero embedding for padding symbol
         self.pad_idx = task.target_dictionary.pad()
         self.model.transformer.wte.weight.data[self.pad_idx].zero_()
-
-        self.external_memory = External_Memory(args) if getattr(args, "use_external_memory", False) else None
-        if getattr(args, "use_external_memory", False):
-            for i in range(args.num_layers//2):
-                for name, param in self.model.transformer.h[i*2].named_parameters():
-                    param.requires_grad = False
-            self.model.transformer.wte.weight.requires_grad = False
-            self.model.lm_head.weight.requires_grad = False
-            self.model.lm_head.bias.requires_grad = False
-            # self.model.transformer.ln_f.weight.requires_grad = False
 
     def forward(
         self,
