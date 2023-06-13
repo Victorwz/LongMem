@@ -1,4 +1,4 @@
-# NeurIPS 2023 Submission Language Models Augmented with Decoupled Memory
+# LongMem
 
 ## Project Strcture
 Pre-trained LLM Class (L24, E1024, Alibi POS_ENCODING): ``fairseq/fairseq/models/newgpt.py``
