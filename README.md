@@ -9,7 +9,7 @@ Official implementation of our paper "[Augmenting Language Models with Long-Term
 
 * fairseq: ``pip install --editable ./fairseq`` Then the revised `fairseq` and ohter packages will be installed. We strongly recommend you to use python 3.8 for stability.
 
-## Project Strcture
+## Project Structure
 Pre-trained LLM Class (L24, E1024, Alibi POS_ENCODING): [`fairseq/fairseq/models/newgpt.py`](fairseq/fairseq/models/newgpt.py)
 
 Transformer Decoder with SideNetwork (L12, E1024, Alibi POS_ENCODING): [`fairseq/fairseq/models/sidenet/transformer_decoder_sidenet.py`](fairseq/fairseq/models/sidenet/transformer_decoder_sidenet.py)
