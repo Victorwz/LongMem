@@ -5,7 +5,7 @@ Official implementation of our paper "[Augmenting Language Models with Long-Term
 ## Environment Setup 
 * torch: Please follow [torch official installation guide](https://pytorch.org/get-started/previous-versions/). We recommend torch>=1.8.0. Please select the torch-gpu version which is consistent with your cuda driver version.
 
-* Faiss-GPU: For Nvidia V100 GPUs, simply install via ``pip iinstall faiss-gpu``. For Nvidia A100 GPUs, please run ``conda install faiss-gpu cudatoolkit=11.0 -c pytorch``. The A100 GPU is not officially supported by faiss-gpu, sometimes it will lead to errors, you can refer to this git [issue](https://github.com/facebookresearch/faiss/issues/2064) of faiss for help.
+* Faiss-GPU: For Nvidia V100 GPUs, simply install via ``pip install faiss-gpu``. For Nvidia A100 GPUs, please run ``conda install faiss-gpu cudatoolkit=11.0 -c pytorch``. The A100 GPU is not officially supported by faiss-gpu, sometimes it will lead to errors, you can refer to this git [issue](https://github.com/facebookresearch/faiss/issues/2064) of faiss for help.
 
 * fairseq: ``pip install --editable ./fairseq`` Then the revised `fairseq` and ohter packages will be installed. We strongly recommend you to use python 3.8 for stability.
 
