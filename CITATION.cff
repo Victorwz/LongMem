@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Wang"
+    given-names: "Weizhi"
+  - family-names: "Dong"
+    given-names: "Li"
+  - family-names: "Cheng"
+    given-names: "Hao"
+  - family-names: "Liu"
+    given-names: "Xiaodong"
+  - family-names: "Yan"
+    given-names: "Xifeng"
+  - family-names: "Gao"
+    given-names: "Jianfeng"
+  - family-names: "Wei"
+    given-names: "Furu"
+title: "Augmenting Language Models with Long-Term Memory"
+doi: "https://doi.org/10.48550/arXiv.2306.07174"
+repository-code: "https://github.com/Victorwz/LongMem"
+license: "Apache-2.0"
+date-released: 2023
+abstract: "Official implementation of our paper 'Augmenting Language Models with Long-Term Memory'."
