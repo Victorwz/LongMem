@@ -9,16 +9,16 @@ Official implementation of our paper "[Augmenting Language Models with Long-Term
 
 * fairseq: ``pip install --editable ./fairseq`` Then the revised `fairseq` and ohter packages will be installed. We strongly recommend you to use python 3.8 for stability.
 
-## Project Strcture
-Pre-trained LLM Class (L24, E1024, Alibi POS_ENCODING): ``fairseq/fairseq/models/newgpt.py``
+## Project Structure
+Pre-trained LLM Class (L24, E1024, Alibi POS_ENCODING): [`fairseq/fairseq/models/newgpt.py`](fairseq/fairseq/models/newgpt.py)
 
-Transformer Decoder with SideNetwork (L12, E1024, Alibi POS_ENCODING): ``fairseq/fairseq/models/sidenet/transformer_decoder_sidenet.py``
+Transformer Decoder with SideNetwork (L12, E1024, Alibi POS_ENCODING): [`fairseq/fairseq/models/sidenet/transformer_decoder_sidenet.py`](fairseq/fairseq/models/sidenet/transformer_decoder_sidenet.py)
 
-Transformer Language Model with SideNetwork Class: ``fairseq/fairseq/models/transformer_lm_sidenet.py``
+Transformer Language Model with SideNetwork Class: [`fairseq/fairseq/models/transformer_lm_sidenet.py`](fairseq/fairseq/models/transformer_lm_sidenet.py)
 
-Memory Bank and Retrieval: ``fairseq/fairseq/modules/dynamic_memory_with_chunk.py``
+Memory Bank and Retrieval: [`fairseq/fairseq/modules/dynamic_memory_with_chunk.py`](fairseq/fairseq/modules/dynamic_memory_with_chunk.py)
 
-Joint Attention for Memory Fusion: ``fairseq/fairseq/modules/joint_multihead_attention_sum.py``
+Joint Attention for Memory Fusion: [`fairseq/fairseq/modules/joint_multihead_attention_sum.py`](fairseq/fairseq/modules/joint_multihead_attention_sum.py)
 
 ## Citation
 Please cite our paper if you find this repository helpful in your research:
