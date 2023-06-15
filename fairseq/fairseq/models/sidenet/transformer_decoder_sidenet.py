@@ -22,8 +22,6 @@ from fairseq.modules import (
     LayerNorm,
     PositionalEmbedding,
     SinusoidalPositionalEmbedding,
-    sidenet_layer,
-    sidenet_layer_palm,
     sidenet_layer_palm_sidenet_retrieval,
 )
 from fairseq.modules import transformer_layer
@@ -277,7 +275,6 @@ class TransformerDecoderSideNetBase(FairseqIncrementalDecoder):
 
     def build_decoder_layer(self, cfg, no_encoder_attn=False, memory=False):
         # build the layers for side network
-        # layer = sidenet_layer.TransformerDecoderSideNetLayer(cfg, no_encoder_attn, memory=memory)
         layer = sidenet_layer_palm_sidenet_retrieval.TransformerDecoderSideNetLayer(cfg, no_encoder_attn, memory=memory)
         checkpoint = cfg.checkpoint_activations
         if checkpoint:

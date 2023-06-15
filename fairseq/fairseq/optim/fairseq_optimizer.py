@@ -93,11 +93,6 @@ class FairseqOptimizer(object):
     def backward(self, loss):
         """Computes the sum of gradients of the given tensor w.r.t. graph leaves."""
         loss.backward()
-        for name, param in self.named_parameters():
-            if param.grad is None:
-                print(name)
-        import pdb
-        pdb.set_trace()
 
     def all_reduce_grads(self, module):
         """Manually all-reduce gradients (if required)."""
