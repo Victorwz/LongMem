@@ -194,8 +194,7 @@ class TransformerDecoderSideNetBase(FairseqIncrementalDecoder):
         # self-defined parametes
         print("Load Pre-trained GPT from {}".format(cfg.pretrained_model_path))
         self.pretrained_model_path = cfg.pretrained_model_path 
-        self.pretrained_model, _ = load_model_ensemble([self.pretrained_model_path], task=None,
-        arg_overrides={"gpt2_vocab_bpe": os.path.join(cfg.gpt_encoder_path, "vocab.bpe"), "gpt2_encoder_json": os.path.join(cfg.gpt_encoder_path, "encoder.json"), "gpt_dict_path": os.path.join(cfg.gpt_encoder_path, "dict.txt"), "retrieval_layer_index": cfg.retrieval_layer_index})
+        self.pretrained_model, _ = load_model_ensemble([self.pretrained_model_path], task=None, arg_overrides={"gpt2_vocab_bpe": os.path.join(cfg.gpt_encoder_path, "vocab.bpe"), "gpt2_encoder_json": os.path.join(cfg.gpt_encoder_path, "encoder.json"), "gpt_dict_path": os.path.join(cfg.gpt_encoder_path, "dict.txt"), "retrieval_layer_index": cfg.retrieval_layer_index})
         self.pretrained_model = self.pretrained_model[0]
 
         self.layer_reduction_factor = cfg.layer_reduction_factor

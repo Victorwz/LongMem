@@ -245,6 +245,11 @@ class TransformerLanguageModelSideNetConfig(FairseqDataclass):
             "help": "Whether reload the LM Head of GPT2 for side network",
         }
     )
+    
+    gpt_encoder_path: Optional[str] = field(
+        default="gpt2_bpe",
+        metadata={"help": "Path to the pre-trained backbone model encoder and vocab"},
+    )
 
     # retrieval arguments
     use_external_memory: Optional[bool] = field(

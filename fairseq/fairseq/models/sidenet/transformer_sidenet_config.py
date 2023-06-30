@@ -241,9 +241,10 @@ class TransformerSideNetConfig(FairseqDataclass):
             "help": "the reduction factor for constructing side network from backbone transformer",
         },
     )
+
     gpt_encoder_path: Optional[str] = field(
-        default="/mnt/multimodal/data/text/openwebtext2",
-        metadata={"help": "Path to the pre-trained backbone model encoder and vovab"},
+        default="gpt2_bpe",
+        metadata={"help": "Path to the pre-trained backbone model encoder and vocab"},
     )
 
     reload_ptm_layer: Optional[bool] = field(

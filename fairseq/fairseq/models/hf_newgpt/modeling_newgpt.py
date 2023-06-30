@@ -10,8 +10,6 @@ from torch import nn
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from torch.nn import Parameter
 
-from fairseq.modules.dynamic_memory_memtrm import External_Memory
-
 from transformers.activations import ACT2FN
 from transformers.modeling_outputs import (
     BaseModelOutputWithPast,
@@ -246,7 +244,6 @@ class NewGPTJointAttention(nn.Module):
         head_mask: Optional[torch.FloatTensor] = None,
         use_cache: Optional[bool] = False,
         output_attentions: Optional[bool] = False,
-        external_memory: Optional[External_Memory] = None,
         disable_add_index: Optional[bool] = False,
     ) -> Union[
         Tuple[torch.Tensor, Tuple[torch.Tensor]],
@@ -394,7 +391,6 @@ class NewGPTAttention(nn.Module):
         head_mask: Optional[torch.FloatTensor] = None,
         use_cache: Optional[bool] = False,
         output_attentions: Optional[bool] = False,
-        external_memory: Optional[External_Memory] = None,
         disable_add_index: Optional[bool] = False,
     ) -> Union[
         Tuple[torch.Tensor, Tuple[torch.Tensor]],
@@ -505,7 +501,6 @@ class NewGPTBlock(nn.Module):
         head_mask: Optional[torch.FloatTensor] = None,
         use_cache: Optional[bool] = False,
         output_attentions: Optional[bool] = False,
-        external_memory: Optional[External_Memory] = None,
         disable_add_index: Optional[bool] = False,
     ) -> Union[Tuple[torch.Tensor], Optional[Tuple[torch.Tensor, Tuple[torch.FloatTensor, ...]]]]:
         residual = hidden_states
@@ -518,7 +513,6 @@ class NewGPTBlock(nn.Module):
             head_mask=head_mask,
             use_cache=use_cache,
             output_attentions=output_attentions,
-            external_memory=external_memory,
             disable_add_index=disable_add_index,
         )
         attn_output = attn_outputs[0]  # output_attn: a, present, (attentions)
@@ -671,7 +665,6 @@ class NewGPTModel(NewGPTPreTrainedModel):
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
-        external_memory = None,
         disable_add_index: Optional[bool] = False,
     ) -> Union[Tuple, BaseModelOutputWithPast]:
         output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
@@ -795,7 +788,6 @@ class NewGPTModel(NewGPTPreTrainedModel):
                     head_mask=head_mask[i],
                     use_cache=use_cache,
                     output_attentions=output_attentions,
-                    external_memory=external_memory,
                     disable_add_index=disable_add_index,
                 )
                 if i == self.retrieval_layer_index:

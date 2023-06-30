@@ -25,10 +25,10 @@ from fairseq.models.sidenet.transformer_sidenet_config import (
 # )
 # from fairseq.models.transformer.transformer_base import TransformerModelBase, Embedding
 from .transformer_decoder_sidenet import TransformerDecoderSideNet
-from .transformer_decoder_sidenet_bloom import TransformerDecoderSideNetBloom
+# from .transformer_decoder_sidenet_bloom import TransformerDecoderSideNetBloom
 
 __all__ = [
     "TransformerSideNetConfig",
     "TransformerDecoderSideNet",
-    "TransformerDecoderSideNetBloom",
+    # "TransformerDecoderSideNetBloom",
 ]

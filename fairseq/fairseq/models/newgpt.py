@@ -134,7 +134,6 @@ class NewGPTDecoder(FairseqIncrementalDecoder):
             past_key_values=past,
             attention_mask=attention_mask,
             output_hidden_states=True,
-            external_memory=self.external_memory,
             disable_add_index=disable_add_index,
         )
         last_hidden_state = outputs.last_hidden_state
