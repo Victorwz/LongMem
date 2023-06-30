@@ -1,6 +1,16 @@
 # LongMem
 
-Official implementation of our paper "[Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs//2306.07174)". 
+Official implementation of our paper "[Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs//2306.07174)".
+
+Please cite our paper if you find this repository interesting or helpful:
+```bibtex
+@article{LongMem,
+  title={Augmenting Language Models with Long-Term Memory},
+  author={Wang, Weizhi and Dong, Li and Cheng, Hao and Liu, Xiaodong and Yan, Xifeng and Gao, Jianfeng and Wei, Furu},
+  journal={arXiv preprint arXiv:2306.07174},
+  year={2023}
+}
+```
 
 ## Environment Setup 
 * torch: Please follow [torch official installation guide](https://pytorch.org/get-started/previous-versions/). We recommend torch>=1.8.0. Please select the torch-gpu version which is consistent with your cuda driver version.
@@ -40,17 +50,6 @@ Please firstly download the checkpoints for pre-trained [GPT2-medium model and L
 python eval_scripts/eval_longmem_icl.py --path /path/to/gpt2_pretrained_model
 # Evaluate LongMem model
 python eval_scripts/eval_longmem_icl.py --path /path/to/longmem_model --pretrained-model-path /path/to/gpt2_pretrained_model
-```
-
-## Citation
-Please cite our paper if you find this repository helpful in your research:
-```
-@article{LongMem,
-  title={Augmenting Language Models with Long-Term Memory},
-  author={Wang, Weizhi and Dong, Li and Cheng, Hao and Liu, Xiaodong and Yan, Xifeng and Gao, Jianfeng and Wei, Furu},
-  journal={arXiv preprint arXiv:2306.07174},
-  year={2023}
-}
 ```
 
 ## Credits
