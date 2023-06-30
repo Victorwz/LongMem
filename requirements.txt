@@ -1,1 +1,3 @@
 scipy
+transformers
+datasets
