@@ -72,7 +72,7 @@ def load_data(task):
 
 
 def main(args):
-    if "sidenet" in args.path:
+    if "longmem_gpt2_medium" in args.path:
         override_args = {"pretrained_model_path": args.pretrained_model_path, "gpt_encoder_path": args.gpt_encoder_path, "data": "gpt2_bpe", "chunk_size": 2}
     else:
         override_args = {"gpt2_vocab_bpe": os.path.join(args.gpt_encoder_path, "vocab.bpe"), "gpt2_encoder_json": os.path.join(args.gpt_encoder_path, "encoder.json"), "gpt_dict_path": os.path.join(args.gpt_encoder_path, "dict.txt")}
@@ -107,7 +107,7 @@ def main(args):
         original_demon_train_subset = [task_template.format(s[0], s[1]) for s in original_demon_train_subset]
         demonstration = "".join(original_demon_train_subset)
 
-        if "sidenet" in args.path:
+        if "longmem_gpt2_medium" in args.path:
             print("Load {} examples into memory".format(args.cache_k))
             memory_set = [task_template.format(s[0], s[1]) for idx, s in enumerate(random.sample(data['train'], args.cache_k))]
 
@@ -132,7 +132,7 @@ def main(args):
 
             tokens = torch.LongTensor([tokens[:-1]]).cuda()
 
-            if "sidenet" in args.path:
+            if "longmem_gpt2_medium" in args.path:
                 prediction = model(tokens, features_only=False, disable_add_index=True)
             else:
                 prediction = model(tokens, features_only=False)
@@ -157,7 +157,7 @@ def main(args):
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description="Arguments for evaluating GPT2 LongMem Model")
-    parser.add_argument("--path", type=str, default="gpt2_medium/checkpoint_last.pt", help="The path to the model checkpoint")
+    parser.add_argument("--path", type=str, default="checkpoints/longmem_gpt2_medium/checkpoint_last.pt", help="The path to the model checkpoint")
     parser.add_argument("--pretrained-model-path", type=str, default="checkpoints/gpt2_medium/checkpoint_last.pt", help="The path to the data")
     parser.add_argument("--task", type=str, default="SST-2", help="The evaluated task for in-context learning")
     parser.add_argument("--gpt-encoder-path", type=str, default="gpt2_bpe", help="The path to the gpt2 encoder and dictionary")
