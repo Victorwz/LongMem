@@ -13,7 +13,7 @@ fairseq-train ${DATA_DIR}  \
     --save-interval-updates 10000 --sample-break-mode none \
     --tokens-per-sample 1024 \
     --batch-size 8 --total-num-update 100000 --seed 42 \
-    --pretrained-model-path bigscience/bloom-1b7 \
+    --pretrained-model-path /path/to/gpt2_pretrained_model \
     --layer-reduction-factor 2 \
     --disable-validation \
     --use-external-memory --memory-size 65536 \
@@ -24,3 +24,5 @@ fairseq-train ${DATA_DIR}  \
     --data-no-shuffle \
     --retrieval-layer-index 17 \
     --reload-ptm-layer
+
+# The --pre-trained-model path refers to the path to reproduced GPT-2-Medium checkpoints. You can find the downloading Google Drive url in README.
