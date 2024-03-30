@@ -42,7 +42,7 @@ bash train_scripts/train_longmem.sh
 ```
 
 ## Evaluation
-Please firstly download the checkpoints for pre-trained [GPT2-medium model and LongMem model](https://drive.google.com/file/d/1ZTNN8r5X2dkQMRuckW6J08sVDOMdzbzA/view?usp=sharing) to ``checkpoints/``.
+Please firstly download the checkpoints for pre-trained [GPT2-medium model and LongMem model](https://huggingface.co/weizhiwang/LongMem-558M) to ``checkpoints/``.
 
 ### Memory-Augmented In-Context Learning
 ```
